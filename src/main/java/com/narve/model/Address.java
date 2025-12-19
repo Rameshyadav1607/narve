@@ -29,28 +29,6 @@ public class Address implements java.io.Serializable {
      private String country;
      private String stateOfCountry;
      private String zipcode;
-
-    public Address() {
-    }
-
-	
-    public Address(int addressId, String houseNo, String street, String country, String stateOfCountry, String zipcode) {
-        this.addressId = addressId;
-        this.houseNo = houseNo;
-        this.street = street;
-        this.country = country;
-        this.stateOfCountry = stateOfCountry;
-        this.zipcode = zipcode;
-    }
-    public Address(int addressId, Employee employee, String houseNo, String street, String country, String stateOfCountry, String zipcode) {
-       this.addressId = addressId;
-       this.employee = employee;
-       this.houseNo = houseNo;
-       this.street = street;
-       this.country = country;
-       this.stateOfCountry = stateOfCountry;
-       this.zipcode = zipcode;
-    }
    
      @Id 
 

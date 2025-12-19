@@ -37,7 +37,7 @@ public class DepartmentResource {
     }
 
 
-    @DeleteMapping("/delete/{departmentId}")
+    @DeleteMapping("/{departmentId}")
     public void deleteDepartment(@PathVariable Integer departmentId){
         departmentService.deleteDepartment(departmentId);
     }

@@ -5,11 +5,12 @@ import com.narve.domain.DepartmentResponse;
 import com.narve.model.Department;
 import com.narve.repository.DepartmentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.time.LocalDate;
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 
@@ -24,21 +25,15 @@ public class DepartmentService {
         Department department = departmentRepository.findByDepartmentName(departmentDomain.getDepartmentName());
          if(department == null){
              department=new Department();
-             department.setDepartmentName(departmentDomain.getDepartmentName());
-             department.setDepartmentLocation(department.getDepartmentLocation());
              department.setCreatedDate(LocalDate.now());
          }
          else{
-             department.setDepartmentId(department.getDepartmentId());
-             department.setDepartmentName(departmentDomain.getDepartmentName());
-             department.setDepartmentLocation(departmentDomain.getDepartmentLocation());
              department.setUpdatedDate(LocalDate.now());
          }
-
+        department.setDepartmentName(departmentDomain.getDepartmentName());
+        department.setDepartmentLocation(departmentDomain.getDepartmentLocation());
         departmentRepository.save(department);
-
         return  "department created/updated";
-
     }
 
 
@@ -51,7 +46,7 @@ public class DepartmentService {
         boolean exists = departmentRepository.existsById(departmentId);
         if (!exists) {
             System.out.println("Department not found with id: " + departmentId);
-            return;
+            throw  new ResponseStatusException(HttpStatus.NOT_FOUND);
         }
         departmentRepository.deleteById(departmentId);
 

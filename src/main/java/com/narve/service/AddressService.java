@@ -22,7 +22,6 @@ public class AddressService {
     private EmployeeRepository employeeRepository;
 
     public ResponseEntity<?> createAddress(AddressRequest addressRequest) {
-         try{
         List<AddressDomain> addresses = addressRequest.getAddresses();
         Integer employeeId = addressRequest.getEmployeeId();
         Employee employee = employeeRepository.findByEmployeeId(employeeId);
@@ -36,9 +35,7 @@ public class AddressService {
             addressRepository.save(address);
         }
         return ResponseEntity.status(HttpStatus.OK).body("address are saved");
-         }catch (Exception e){
-             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("address are saved");
-         }
+
 
     }
 

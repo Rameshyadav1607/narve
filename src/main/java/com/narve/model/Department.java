@@ -31,22 +31,6 @@ public class Department implements java.io.Serializable {
      private LocalDate updatedDate;
      private Set<Employee>  employees = new HashSet(0);
 
-    public Department() {
-    }
-
-	
-    public Department(int departmentId, String departmentName) {
-        this.departmentId = departmentId;
-        this.departmentName = departmentName;
-    }
-    public Department(int departmentId, String departmentName, String departmentLocation, LocalDate createdDate, LocalDate updatedDate, Set employees) {
-       this.departmentId = departmentId;
-       this.departmentName = departmentName;
-       this.departmentLocation = departmentLocation;
-       this.createdDate = createdDate;
-       this.updatedDate = updatedDate;
-       this.employees = employees;
-    }
    
      @Id 
 

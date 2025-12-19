@@ -43,30 +43,7 @@ public class Employee implements java.io.Serializable {
      private LocalDate updatedDate;
      private Set<Address> addresses = new HashSet(0);
 
-    public Employee() {
-    }
 
-	
-    public Employee(int employeeId, Department department, String firstName, String lastName, String emailId, String phoneNo) {
-        this.employeeId = employeeId;
-        this.department = department;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.emailId = emailId;
-        this.phoneNo = phoneNo;
-    }
-    public Employee(int employeeId, Department department, String firstName, String lastName, String emailId, String phoneNo, LocalDate createdDate,LocalDate updatedDate, Set addresses) {
-       this.employeeId = employeeId;
-       this.department = department;
-       this.firstName = firstName;
-       this.lastName = lastName;
-       this.emailId = emailId;
-       this.phoneNo = phoneNo;
-       this.createdDate = createdDate;
-       this.updatedDate=updatedDate;
-       this.addresses = addresses;
-    }
-   
      @Id 
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -156,8 +133,6 @@ public class Employee implements java.io.Serializable {
     public void setAddresses(Set addresses) {
         this.addresses = addresses;
     }
-
-
 
 
 }
